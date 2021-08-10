@@ -13,8 +13,11 @@
 }
 
 .header__logo {
+  box-sizing: border-box;
   width: Rem(290px);
   height: Rem(68px);
+  margin-top: Rem(40px);
+  margin-bottom: Rem(40px);
 
   img {
     width: 100%;

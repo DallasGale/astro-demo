@@ -1,6 +1,8 @@
 ---
 let title = 'My Astro Site';
 import BaseLayout from "../layouts/BaseLayout.astro";
+import PageLayout from "../components/astro/page-layout.astro";
+import PostTile from "../components/react/post-tile/";
 
 // Data
 const token = __SNOWPACK_ENV__.DATO_API_TOKEN;
@@ -13,26 +15,34 @@ const response = await fetch('https://graphql.datocms.com/',
       'Authorization': `Bearer ${token}`,
     },
     body: JSON.stringify({
-      query: '{ allPosts { title } }'
+      query: '{ allPosts { id, title, excerpt } }'
     }),
   });
 const data = await response.json()
+
+console.log(data.data.allPosts)
 // React
 ---
 
 <BaseLayout title={title}>
 
-  <div>
-    <ul>
+  <PageLayout>
+      <div slot="left-col">
+        left col
+      </div>
+
+      <div slot="middle-col">
       {
-      data.data.allPosts.map((i) => {
+        data.data.allPosts.map(({id,title, excerpt}) => {
           return (
-            <li key={i.title}>
-              {i.title}
-            </li>
+              <PostTile key={id} title={title} excerpt={excerpt} />
           )
         })
       }
-    </ul>
-  </div>
+      </div>
+
+      <div slot="right-col">
+        right col
+      </div>
+  </PageLayout>
 </BaseLayout>

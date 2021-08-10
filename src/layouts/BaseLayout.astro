@@ -4,6 +4,7 @@ console.log(__SNOWPACK_ENV__.DATO_API_TOKEN)
 
 // src/layouts/BaseLayout.astro
 const {title} = Astro.props;
+import GridOverlay from "../components/astro/grid-overlay";
 import Header from "../components/react/header";
 import NewYorker from "../../public/assets/new-yorker.svg";
 
@@ -20,6 +21,7 @@ import NewYorker from "../../public/assets/new-yorker.svg";
     
   </head>
   <body>
+    <GridOverlay />
     <!-- Adds a navigation bar to every page. -->
     <Header logo={NewYorker} />
     <!-- slot: your page content will be injected here. -->

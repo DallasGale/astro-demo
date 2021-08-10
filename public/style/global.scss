@@ -2,6 +2,7 @@
 @import "./utils/mixins.scss";
 @import "./utils/variables.scss";
 @import "./utils/media_queries.scss";
+
 @import "./grid.scss";
 
 @import "./components/ui/header.scss";
@@ -17,11 +18,7 @@
     sans-serif, Apple Color Emoji, Segoe UI Emoji;
   font-size: 1rem;
   --user-font-scale: 1rem - 16px;
-  font-size: clamp(
-    0.875rem,
-    0.4626rem + 1.0309vw + var(--user-font-scale),
-    1.125rem
-  );
+  font-size: 16px;
 
   --black: #000000;
   --grey: #d1d1d1;
@@ -30,16 +27,24 @@
 
 body {
   background: var(--white);
-  color: var(--white);
+  color: var(--black);
   font-size: 16px;
   margin: 0 0 0 0;
   padding: 0 0 0 0;
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    background: #111827;
-    color: #fff;
-  }
+ul {
+  padding-left: 0;
+  margin-left: 0;
 }
+
+li {
+  list-style: none;
+}
+// @media (prefers-color-scheme: dark) {
+//   body {
+//     background: #111827;
+//     color: #fff;
+//   }
+// }

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import nav_items from "./navigation.json";
 
 const Header = (logo) => {
-  console.log(logo);
   const [navState, setNavState] = useState("default");
 
   return (
@@ -13,7 +12,6 @@ const Header = (logo) => {
       <nav className="nav" data-state={`default`}>
         <ul className="nav__ul">
           {nav_items.map((data) => {
-            console.log({ data });
             return (
               <li key={data.label} className="nav__li" data-color={data.color}>
                 <a className="nav__link" href={data.slug}>
