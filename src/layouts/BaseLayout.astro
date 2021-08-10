@@ -1,10 +1,13 @@
 ---
+
+console.log(__SNOWPACK_ENV__.DATO_API_TOKEN)
+
 // src/layouts/BaseLayout.astro
 const {title} = Astro.props;
 import Header from "../components/react/header";
 import NewYorker from "../../public/assets/new-yorker.svg";
 
-console.log({NewYorker})
+
 ---
 <html>
 <head>
