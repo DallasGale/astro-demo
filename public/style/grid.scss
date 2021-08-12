@@ -1,24 +1,24 @@
 $border-offset: 1rem;
-
+$grid--gap: Rem(32px);
 %grid {
   box-sizing: border-box;
-  background: magenta;
+  // background: magenta;
   opacity: 0.05;
   display: grid;
-  column-gap: Rem(32px);
-  grid-template-columns: repeat(12, 1fr);
+  column-gap: $grid--gap;
+  grid-template-columns: [col1Start] 1fr [col2Start] 1fr [col3Start] 1fr [col4Start] 1fr [col5Start] 1fr [col6Start] 1fr [col7Start] 1fr [col8Start] 1fr [col9Start] 1fr [col10Start] 1fr [col11Start] 1fr [col12Start] 1fr [col13Start];
   height: 100vh;
   padding-left: Rem(64px);
   padding-right: Rem(64px);
   width: 100%;
   margin: 0 auto;
   @include respond-to(desktop) {
-    width: Rem(1600px);
+    max-width: Rem(1600px);
   }
 }
 .grid {
   @extend %grid;
-  background: rgba(19, 211, 147, 0.2);
+  // background: rgba(19, 211, 147, 0.2);
   position: relative;
   opacity: 1;
 }
@@ -33,27 +33,42 @@ $border-offset: 1rem;
   z-index: 1;
 
   div {
-    background: black;
+    // background: black;
     height: 100%;
   }
 }
 
-// .grid-column__left-middle {
-//   grid-column-gap: Rem(32px);
-//   grid-column: 1 / span 9;
-//   grid-row: 1 / span 3;
-//   grid-template-columns: repeat(9, 1fr);
-//   grid-template-rows: minmax(2.5rem, auto) 1fr;
-//   grid-row-gap: 1rem;
-// }
+.grid.above-fold {
+  height: 100%;
+}
 
-// .grid-column__right {
-//   grid-column: 10 / span 3;
-//   grid-row: 1 / span 1;
-//   margin-left: calc(var($border-offset) * -1);
-//   border-top: none;
-//   border-bottom: none;
-//   border-left: 1px solid #e5e5e5;
-//   padding-left: var($border-offset);
-//   width: calc(100% + var($border-offset));
-// }
+.grid-col--thumbnail-posts {
+  grid-column: col1Start / col4Start;
+}
+
+.grid-col--featured-posts {
+  grid-column: col4Start / col10Start;
+  position: relative;
+  &:before {
+    background: #cccccc;
+    content: "";
+    height: 100%;
+    left: -16px;
+    top: 0;
+    width: Rem(1px);
+    position: absolute;
+  }
+  &:after {
+    background: #cccccc;
+    content: "";
+    height: 100%;
+    right: -16px;
+    top: 0;
+    width: Rem(1px);
+    position: absolute;
+  }
+}
+
+.grid-col--news-culture {
+  grid-column: col10Start / col13Start;
+}

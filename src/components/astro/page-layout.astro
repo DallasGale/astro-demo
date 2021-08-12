@@ -1,5 +1,12 @@
 <div class="grid above-fold">
-  <slot name="left-col" />
-  <slot name="middle-col" />
-  <slot name="right-col" />
+  <div class="grid-col--thumbnail-posts">
+    <slot name="left-col" />
+  </div>
+  <div class="grid-col--featured-posts">
+    <slot name="middle-col" />
+  </div>
+
+  <div class="grid-col--news-culture">
+    <slot name="right-col" />
+  </div>
 </div>

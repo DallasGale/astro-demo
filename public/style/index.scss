@@ -1,0 +1,92 @@
+@import "./utils/helpers.scss";
+@import "./utils/mixins.scss";
+@import "./utils/variables.scss";
+@import "./utils/media_queries.scss";
+
+@import "./grid.scss";
+
+@import "./components/ui/header.scss";
+@import "./components/ui/navigation.scss";
+@import "./components/ui/post/tile.scss";
+@import "./components/ui/post/regular.scss";
+@import "./components/ui/post/feature.scss";
+@import "./components/ui/post/mini.scss";
+@import "./components/ui/post/strip.scss";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+@font-face {
+  font-family: "AdobeCarlsonPro";
+  src: url("../assets/fonts/TNYAdobeCarlsonPro-Regular.woff2") format("woff2"),
+    url("../assets/fonts/TNYAdobeCarlsonPro-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Irvin Heading";
+  src: url("../assets/fonts/Irvin-Heading.woff2") format("woff2"),
+    url("../assets/fonts/Irvin-Heading.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Irvin Text";
+  src: url("../assets/fonts/") format("woff2"),
+    url("../assets/fonts/Irvine-Text.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Neutraface";
+  src: url("../assets/fonts/Neutraface.woff2") format("woff2"),
+    url("../assets/fonts/Neutraface.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
+    sans-serif, Apple Color Emoji, Segoe UI Emoji;
+  font-size: 1rem;
+  --user-font-scale: 1rem - 16px;
+  font-size: 16px;
+
+  --black: #000000;
+  --grey: #d1d1d1;
+  --white: #ffffff;
+}
+
+body {
+  background: var(--white);
+  color: var(--black);
+  font-size: 16px;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  box-sizing: border-box;
+}
+p {
+  font-family: "AdobeCarlsonPro", serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Irvin Heading";
+}
+
+ul {
+  padding-left: 0;
+  margin-left: 0;
+}
+
+li {
+  list-style: none;
+}

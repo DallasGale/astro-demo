@@ -1,0 +1,14 @@
+.post-tile--regular {
+  .post-tile--picture img {
+    height: 15vw;
+    max-height: Rem(300px);
+  }
+
+  .post-tile--title {
+    font-size: Rem(18px);
+  }
+
+  .post-tile--excerpt {
+    font-size: Rem(18px);
+  }
+}

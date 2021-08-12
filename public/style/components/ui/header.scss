@@ -8,7 +8,7 @@
   justify-content: center;
   width: 100%;
   @include respond-to(tablet) {
-    height: Rem(138px);
+    min-height: Rem(138px);
   }
 }
 
