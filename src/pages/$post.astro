@@ -1,0 +1,74 @@
+---
+import PageLayout from "../components/astro/page-layout.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+export async function createCollection() {
+  const token = __SNOWPACK_ENV__.DATO_API_TOKEN;
+
+  const allPostsResponse = await fetch('https://graphql.datocms.com/',
+  {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      query: `{
+        allPosts {
+          category {
+            name
+          }
+          title
+          excerpt
+          date
+          slug
+          coverImage {
+            url
+          }
+          author {
+            name
+          }
+        }
+      }`
+    }),
+  });
+  const allPostResult = await allPostsResponse.json();
+  const allPost = allPostResult.data.allPosts;
+  console.log({allPost})
+
+  // return {
+  //   route: `/posts/:name`,
+
+  //   paths() {
+  //     return allPost.map((post, i) => ({params: {name: post.title}}));
+  //   },
+
+  //   async props({ params }) => {
+  //     return { item: allPost.find((post) => post.title === params.name)};
+  //   },
+  // };
+  return {
+    // `route` defines the URL structure for your collection.
+    // You can use any URL path pattern here, as long as it
+    // matches the filename prefix (`$pokemon.astro` -> `/pokemon/*`).
+    route: `/post/:name`,
+    // `paths` tells Astro which pages to generate in your collection.
+    // Provide an array of `params` objects that match the `route` pattern.
+    paths() {
+      return allPost.map((post, i) => ({params: {name: post.slug}}));
+    },
+    // For each individual page, return the data needed on each page.
+    // If you needed to fetch more data for each page, you can do that here as well.
+    // Luckily, we loaded all of the data that we need at the top of the function.
+    async props({ params }) {
+      return {item: allPost.find((post) => post.slug === params.name)};
+    },
+  };
+}
+
+const { item } = Astro.props;
+---
+<BaseLayout title={item.title}>
+    <h1>{item.title}!</h1>
+</BaseLayout>

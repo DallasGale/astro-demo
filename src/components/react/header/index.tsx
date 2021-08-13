@@ -6,9 +6,11 @@ const Header = (logo) => {
 
   return (
     <header className="header">
-      <h1 className="header__logo">
-        <img src={logo.logo} alt="The New Yorker" />
-      </h1>
+      <a href="/">
+        <h1 className="header__logo">
+          <img src={logo.logo} alt="The New Yorker" />
+        </h1>
+      </a>
       <nav className="nav" data-state={`default`}>
         <ul className="nav__ul">
           {nav_items.map((data) => {

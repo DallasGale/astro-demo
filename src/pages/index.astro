@@ -20,6 +20,7 @@ const response = await fetch('https://graphql.datocms.com/',
           category {
             name
           }
+          slug
           title
           excerpt
           date
@@ -37,6 +38,7 @@ const data = await response.json()
 const featurePost = data.data.allPosts[2]
 const stripPost = data.data.allPosts[3]
 
+
 ---
 
 <BaseLayout title={title}>
@@ -44,25 +46,24 @@ const stripPost = data.data.allPosts[3]
   <PageLayout>
       <div slot="left-col">
        {
-        data.data.allPosts.slice(0,2).map(({id, title, category, excerpt, coverImage, author}) => {
+        data.data.allPosts.slice(0,2).map(({id, title, category, excerpt, coverImage, author, slug}) => {
           return (
-              <PostTile key={id} title={title} category={category.name} excerpt={excerpt} image={coverImage.url} author={author.name} />
+              <PostTile slug={slug} key={id} title={title} category={category.name} excerpt={excerpt} image={coverImage.url} author={author.name} />
           )
         })
       }
       </div>
 
       <div slot="middle-col">
-          <PostTile tileType="feature" title={featurePost.title} category={featurePost.category.name}  excerpt={featurePost.excerpt} image={featurePost.coverImage.url} author={featurePost.author.name} />
-          <PostTile tileType="strip"  title={stripPost.title} category={stripPost.category.name}  excerpt={featurePost.excerpt} image={featurePost.coverImage.url} author={featurePost.author.name} />
-
+          <PostTile slug={featurePost.slug} tileType="feature" title={featurePost.title} category={featurePost.category.name}  excerpt={featurePost.excerpt} image={featurePost.coverImage.url} author={featurePost.author.name} />
+          <PostTile slug={stripPost.slug} tileType="strip"  title={stripPost.title} category={stripPost.category.name}  excerpt={featurePost.excerpt} image={featurePost.coverImage.url} author={featurePost.author.name} />
       </div>
 
       <div slot="right-col">
         {
-          data.data.allPosts.slice(4).map(({id, title, category, excerpt, coverImage, author}) => {
+          data.data.allPosts.slice(4).map(({id, title, category, excerpt, coverImage, author, slug}) => {
             return (
-                <PostTile tileType="mini" key={id} title={title} category={category.name}  excerpt={excerpt} image={coverImage.url} author={author.name} />
+                <PostTile slug={slug} tileType="mini" key={id} title={title} category={category.name}  excerpt={excerpt} image={coverImage.url} author={author.name} />
             )
           })
         }

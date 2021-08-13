@@ -1,6 +1,7 @@
 import React from "react";
 
 interface Props {
+  slug: string;
   image: string;
   category: string;
   title: string;
@@ -11,6 +12,7 @@ interface Props {
 }
 
 const PostTile = ({
+  slug,
   image,
   category,
   title,
@@ -20,7 +22,7 @@ const PostTile = ({
 }): Props => {
   if (tileType === "feature") {
     return (
-      <div className="post-tile post-tile--feature">
+      <a href={`/post/${slug}`} className="post-tile post-tile--feature">
         <picture className="post-tile--picture">
           <source srcSet={`${image}?auto=format&h=700`} />
           <img src={`${image}?auto=format&h=600`} alt="Buzz" />
@@ -32,11 +34,11 @@ const PostTile = ({
           <p className="post-tile--excerpt">{excerpt}</p>
           <p className="post-tile--author">{author}</p>
         </div>
-      </div>
+      </a>
     );
   } else if (tileType === "mini") {
     return (
-      <div className="post-tile post-tile--mini">
+      <a href={`/post/${slug}`} className="post-tile post-tile--mini">
         <picture className="post-tile--picture">
           <source srcSet={`${image}?auto=format&h=100`} />
           <img src={`${image}?auto=format&h=100`} alt="Buzz" />
@@ -46,11 +48,11 @@ const PostTile = ({
           <small className="post-tile--category">{category}</small>
           <h2 className="post-tile--title">{title}</h2>
         </div>
-      </div>
+      </a>
     );
   } else if (tileType === "strip") {
     return (
-      <div className="post-tile post-tile--strip">
+      <a href={`/post/${slug}`} className="post-tile post-tile--strip">
         <picture className="post-tile--picture">
           <source srcSet={`${image}?auto=format&h=150`} />
           <img src={`${image}?auto=format&h=150`} alt="Buzz" />
@@ -62,11 +64,11 @@ const PostTile = ({
           <p className="post-tile--excerpt">{excerpt}</p>
           <p className="post-tile--author">{author}</p>
         </div>
-      </div>
+      </a>
     );
   } else {
     return (
-      <div className="post-tile post-tile--regular">
+      <a href={`/post/${slug}`} className="post-tile post-tile--regular">
         <picture className="post-tile--picture">
           <source srcSet={`${image}?auto=format&h=400`} />
           <img src={`${image}?auto=format&h=400`} alt="Buzz" />
@@ -78,7 +80,7 @@ const PostTile = ({
           <p className="post-tile--excerpt">{excerpt}</p>
           <p className="post-tile--author">{author}</p>
         </div>
-      </div>
+      </a>
     );
   }
 };
