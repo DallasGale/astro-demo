@@ -22,8 +22,8 @@ const PostTile = ({
     return (
       <div className="post-tile post-tile--feature">
         <picture className="post-tile--picture">
-          <source srcSet={image} />
-          <img src={image} alt="Buzz" />
+          <source srcSet={`${image}?auto=format&h=700`} />
+          <img src={`${image}?auto=format&h=600`} alt="Buzz" />
         </picture>
 
         <div className="post-tile--copy">
@@ -38,8 +38,8 @@ const PostTile = ({
     return (
       <div className="post-tile post-tile--mini">
         <picture className="post-tile--picture">
-          <source srcSet={image} />
-          <img src={image} alt="Buzz" />
+          <source srcSet={`${image}?auto=format&h=100`} />
+          <img src={`${image}?auto=format&h=100`} alt="Buzz" />
         </picture>
 
         <div className="post-tile--copy">
@@ -52,8 +52,8 @@ const PostTile = ({
     return (
       <div className="post-tile post-tile--strip">
         <picture className="post-tile--picture">
-          <source srcSet={image} />
-          <img src={image} alt="Buzz" />
+          <source srcSet={`${image}?auto=format&h=150`} />
+          <img src={`${image}?auto=format&h=150`} alt="Buzz" />
         </picture>
 
         <div className="post-tile--copy">
@@ -68,8 +68,8 @@ const PostTile = ({
     return (
       <div className="post-tile post-tile--regular">
         <picture className="post-tile--picture">
-          <source srcSet={image} />
-          <img src={image} alt="Buzz" />
+          <source srcSet={`${image}?auto=format&h=400`} />
+          <img src={`${image}?auto=format&h=400`} alt="Buzz" />
         </picture>
 
         <div className="post-tile--copy">
