@@ -3,6 +3,19 @@
 @import "./utils/variables.scss";
 @import "./utils/media_queries.scss";
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: $black;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 @import "./grid.scss";
 
 @import "./components/ui/header.scss";
@@ -12,11 +25,7 @@
 @import "./components/ui/post/feature.scss";
 @import "./components/ui/post/mini.scss";
 @import "./components/ui/post/strip.scss";
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-}
+@import "./components/ui/support_strip.scss";
 
 @font-face {
   font-family: "AdobeCarlsonPro";

@@ -3,6 +3,7 @@ let title = 'My Astro Site';
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageLayout from "../components/astro/page-layout.astro";
 import PostTile from "../components/react/post-tile/";
+import TextStrip from "../components/react/text-strip/";
 
 // Data
 const token = __SNOWPACK_ENV__.DATO_API_TOKEN;
@@ -42,7 +43,9 @@ const stripPost = data.data.allPosts[3]
 ---
 
 <BaseLayout title={title}>
-
+  <TextStrip>
+    Support <i>Buzz the boy's</i> award winning journaliism. <a href="/">Subscribe today »</a>
+  </TextStrip>
   <PageLayout>
       <div slot="left-col">
        {
