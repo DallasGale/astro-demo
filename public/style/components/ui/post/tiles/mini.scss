@@ -11,9 +11,9 @@
     order: 2;
     max-width: 27%;
     min-width: 27%;
+    height: Rem(50px);
     img {
-      height: 5vw;
-      max-height: Rem(50px);
+      height: 100%;
       width: 100%;
       object-fit: cover;
     }

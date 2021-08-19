@@ -1,7 +1,9 @@
 .post-tile--regular {
-  .post-tile--picture img {
-    height: 15vw;
-    max-height: Rem(300px);
+  .post-tile--picture {
+    height: Rem(300px);
+    img {
+      height: 100%;
+    }
   }
 
   .post-tile--title {

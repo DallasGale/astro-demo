@@ -27,7 +27,12 @@ export async function createCollection() {
           date
           slug
           coverImage {
+            blurUpThumb
             url
+            focalPoint {
+              x
+              y
+            }
           }
           author {
             name
@@ -62,7 +67,7 @@ const {title, category, excerpt, author, date, coverImage } = item
 ---
 
 <BaseLayout title={title}>
-    <PostHeader image={coverImage.url} title={title} category={category.name} excerpt={excerpt} author={author.name} date={date} />
+    <PostHeader image={coverImage.url} blurUpThumb={coverImage.blurUpThumb}  focalPoint={coverImage.focalPoint} title={title} category={category.name} excerpt={excerpt} author={author.name} date={date} />
     <PostLayout>
       { paragraph }
     </PostLayout>

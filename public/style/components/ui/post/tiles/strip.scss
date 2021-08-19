@@ -11,9 +11,9 @@
     min-width: 30%;
     flex: 1;
     order: 2;
+    height: Rem(150px);
     img {
-      height: 13vw;
-      max-height: Rem(150px);
+      height: 100%;
     }
   }
 }

@@ -3,6 +3,8 @@ import { Props } from "./types";
 
 const PostBody: React.VFC<Props> = ({
   image,
+  blurUpThumb,
+  focalPoint,
   slug,
   category,
   title,
@@ -10,14 +12,27 @@ const PostBody: React.VFC<Props> = ({
   author,
   tileType,
 }) => {
+  const Picture = (height) => (
+    <picture
+      className="post-tile--picture"
+      style={{ backgroundImage: `url(${blurUpThumb})` }}
+    >
+      <source srcSet={`${image}?auto=format&h=${height}`} />
+      <a href={`/post/${slug}`}>
+        <img
+          src={`${image}?auto=format&h=${height}&crop=focalpoint&fp-x=${focalPoint.x}&fp-y=${focalPoint.y}`}
+          alt="Buzz"
+        />
+      </a>
+    </picture>
+  );
+
   return (
     <>
-      <picture className="post-tile--picture">
-        <source srcSet={`${image}?auto=format&h=400`} />
-        <a href={`/post/${slug}`}>
-          <img src={`${image}?auto=format&h=400`} alt="Buzz" />
-        </a>
-      </picture>
+      {tileType === "feature" && <Picture height="900" />}
+      {tileType === "default" && <Picture height="400" />}
+      {tileType === "strip" && <Picture height="300" />}
+      {tileType === "mini" && <Picture height="100" />}
       <div className="post-tile--copy">
         <small className="post-tile--category">{category}</small>
         <h2 className="post-tile--title">

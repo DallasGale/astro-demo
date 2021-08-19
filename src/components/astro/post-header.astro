@@ -1,5 +1,5 @@
 ---
-const { image, title, author, excerpt, date, category } = Astro.props;
+const { image, title, author, excerpt, date, category, focalPoint, blurUpThumb } = Astro.props;
 ---
 <div class="grid two-col post-header">
 
@@ -12,6 +12,9 @@ const { image, title, author, excerpt, date, category } = Astro.props;
   </div>
 
   <div class="two-col-grid__col">
-    <img src={`${image}?auto=format&h=960`} />
+    <picture class="post-header--picture" style={`background-image: url('${blurUpThumb}')`}>
+      <source srcset={`${image}?auto=format&h=900`} />
+      <img src={`${image}?auto=format&h=900&crop=focalpoint&fp-x=${focalPoint.x}&fp-y=${focalPoint.y}`} alt="Buzz" />
+    </picture>
   </div>
 </div>

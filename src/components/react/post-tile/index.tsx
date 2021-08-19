@@ -5,6 +5,8 @@ import { Props } from "./types";
 const PostTile: React.VFC<Props> = ({
   slug,
   image,
+  focalPoint,
+  blurUpThumb,
   category,
   title,
   excerpt,
@@ -17,6 +19,8 @@ const PostTile: React.VFC<Props> = ({
         <PostBody
           slug={slug}
           image={image}
+          focalPoint={focalPoint}
+          blurUpThumb={blurUpThumb}
           category={category}
           title={title}
           excerpt={excerpt}
@@ -31,6 +35,8 @@ const PostTile: React.VFC<Props> = ({
         <PostBody
           slug={slug}
           image={image}
+          focalPoint={focalPoint}
+          blurUpThumb={blurUpThumb}
           category={category}
           title={title}
           excerpt={excerpt}
@@ -45,6 +51,8 @@ const PostTile: React.VFC<Props> = ({
         <PostBody
           slug={slug}
           image={image}
+          focalPoint={focalPoint}
+          blurUpThumb={blurUpThumb}
           category={category}
           title={title}
           excerpt={excerpt}
@@ -59,6 +67,8 @@ const PostTile: React.VFC<Props> = ({
         <PostBody
           slug={slug}
           image={image}
+          focalPoint={focalPoint}
+          blurUpThumb={blurUpThumb}
           category={category}
           title={title}
           excerpt={excerpt}

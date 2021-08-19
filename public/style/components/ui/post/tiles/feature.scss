@@ -1,7 +1,9 @@
 .post-tile--feature {
-  .post-tile--picture img {
-    height: 30vw;
-    max-height: Rem(600px);
+  .post-tile--picture {
+    height: Rem(600px);
+    img {
+      height: 100%;
+    }
   }
 
   .post-tile--excerpt {

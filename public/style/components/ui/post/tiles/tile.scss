@@ -8,10 +8,13 @@
 }
 
 .post-tile--picture {
+  background-size: cover;
+  background-repeat: no-repeat;
   margin-bottom: Rem(10px);
   img {
     object-fit: cover;
     width: 100%;
+    max-height: 100%;
   }
 }
 

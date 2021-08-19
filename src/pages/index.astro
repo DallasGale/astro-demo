@@ -30,6 +30,11 @@ const postsResponse = await fetch('https://graphql.datocms.com/',
           date
           coverImage {
             url
+            blurUpThumb
+            focalPoint {
+              x
+              y
+            }
           }
           author {
             name
@@ -65,6 +70,11 @@ const postsData = await postsResponse.json()
 const featurePost = postsData.data.allPosts[2]
 const stripPost = postsData.data.allPosts[3]
 
+const defaultFocal = {
+  x: "0",
+  y: "0"
+}
+
 
 const cartoonData = await cartoonResponse.json()
 const dailyCartoon =  cartoonData.data.allCartoons[0]
@@ -85,22 +95,63 @@ const supportBuzzImage = {
       {
       postsData.data.allPosts.slice(0,2).map(({id, title, category, excerpt, coverImage, author, slug}) => {
         return (
-            <PostTile slug={slug} key={id} title={title} category={category.name} excerpt={excerpt} image={coverImage.url} author={author.name} />
+            <PostTile
+              slug={slug}
+              key={id}
+              title={title}
+              category={category.name}
+              excerpt={excerpt}
+              image={coverImage.url}
+              focalPoint={coverImage.focalPoint}
+              blurUpThumb={coverImage.blurUpThumb}
+              author={author.name}
+            />
         )
       })
     }
     </div>
 
     <div slot="middle-col">
-        <PostTile slug={featurePost.slug} tileType="feature" title={featurePost.title} category={featurePost.category.name}  excerpt={featurePost.excerpt} image={featurePost.coverImage.url} author={featurePost.author.name} />
-        <PostTile slug={stripPost.slug} tileType="strip"  title={stripPost.title} category={stripPost.category.name}  excerpt={featurePost.excerpt} image={featurePost.coverImage.url} author={featurePost.author.name} />
+        <PostTile
+          slug={featurePost.slug}
+          tileType="feature"
+          title={featurePost.title}
+          category={featurePost.category.name}
+          excerpt={featurePost.excerpt}
+          image={featurePost.coverImage.url}
+          focalPoint={featurePost.coverImage.focalPoint}
+          blurUpThumb={featurePost.coverImage.blurUpThumb}
+          author={featurePost.author.name}
+        />
+        <PostTile
+          slug={stripPost.slug}
+          tileType="strip"
+          title={stripPost.title}
+          category={stripPost.category.name}
+          excerpt={stripPost.excerpt}
+          image={stripPost.coverImage.url}
+          focalPoint={stripPost.coverImage.focalPoint}
+          blurUpThumb={stripPost.coverImage.blurUpThumb}
+          author={stripPost.author.name}
+        />
     </div>
 
     <div slot="right-col">
       {
-        postsData.data.allPosts.slice(4).map(({id, title, category, excerpt, coverImage, author, slug}) => {
+        postsData.data.allPosts.slice(3).map(({id, title, category, excerpt, coverImage, author, slug}) => {
           return (
-              <PostTile slug={slug} tileType="mini" key={id} title={title} category={category.name}  excerpt={excerpt} image={coverImage.url} author={author.name} />
+              <PostTile
+                slug={slug}
+                tileType="mini"
+                key={id}
+                title={title}
+                category={category.name}
+                excerpt={excerpt}
+                image={coverImage.url}
+                focalPoint={coverImage.focalPoint}
+                blurUpThumb={coverImage.blurUpThumb}
+                author={author.name}
+              />
           )
         })
       }
@@ -120,6 +171,7 @@ const supportBuzzImage = {
         category=""
         excerpt="Excerpt"
         image="https://images.unsplash.com/photo-1460194436988-671f763436b7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80"
+        focalPoint={defaultFocal}
         author=""  />
     </div>
     <div class="four-col-grid__col">
@@ -130,7 +182,7 @@ const supportBuzzImage = {
         category=""
         excerpt="Excerpt"
         image="https://images.unsplash.com/photo-1516641051054-9df6a1aad654?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2300&q=80"
-
+        focalPoint={defaultFocal}
         author=""  />
     </div>
     <div class="four-col-grid__col">
@@ -141,6 +193,7 @@ const supportBuzzImage = {
         category=""
         excerpt="Excerpt"
         image="https://images.unsplash.com/photo-1545166924-bed85e2fed64?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1934&q=80"
+        focalPoint={defaultFocal}
         author=""  />
     </div>
     <div class="four-col-grid__col">
@@ -151,6 +204,7 @@ const supportBuzzImage = {
         category=""
         excerpt="Excerpt"
         image="https://images.unsplash.com/photo-1593501828586-b07c7fa6cb5d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80"
+        focalPoint={defaultFocal}
         author=""  />
     </div>
   </div>
