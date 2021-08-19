@@ -1,0 +1,17 @@
+---
+const { image, title, author, excerpt, date, category } = Astro.props;
+---
+<div class="grid two-col post-header">
+
+  <div class="two-col-grid__col">
+    <small>{category}</small>
+    <h1>{title}</h1>
+    <p>{excerpt}</p>
+    <small>{date}</small>
+    <h2>{author}</h2>
+  </div>
+
+  <div class="two-col-grid__col">
+    <img src={`${image}?auto=format&h=960`} />
+  </div>
+</div>

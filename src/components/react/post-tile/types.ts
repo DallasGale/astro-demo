@@ -1,4 +1,5 @@
 export interface Props {
+  author: string;
   slug: string;
   image: string;
   category: string;

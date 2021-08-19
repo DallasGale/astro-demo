@@ -1,14 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import nav_items from "./navigation.json";
 
-const Header = (logo) => {
-  const [navState, setNavState] = useState("default");
+import ModeToggle from "../mode-toggle";
 
+interface Props {
+  logo: {
+    src: string;
+  };
+}
+
+const Header: React.FC<Props> = ({ logo: { src } }) => {
   return (
     <header className="header">
       <a href="/">
         <h1 className="header__logo">
-          <img src={logo.logo} alt="The New Yorker" />
+          <img src={src} alt="The New Yorker" />
         </h1>
       </a>
       <nav className="nav" data-state={`default`}>
@@ -24,6 +30,7 @@ const Header = (logo) => {
           })}
         </ul>
       </nav>
+      <ModeToggle />
     </header>
   );
 };

@@ -2,7 +2,7 @@ import React from "react";
 import PostBody from "./body";
 import { Props } from "./types";
 
-const PostTile = ({
+const PostTile: React.VFC<Props> = ({
   slug,
   image,
   category,
@@ -10,7 +10,7 @@ const PostTile = ({
   excerpt,
   author,
   tileType,
-}): Props => {
+}) => {
   if (tileType === "feature") {
     return (
       <div className="post-tile post-tile--feature">

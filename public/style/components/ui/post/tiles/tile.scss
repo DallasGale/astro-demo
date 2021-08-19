@@ -7,9 +7,12 @@
   width: 100%;
 }
 
-.post-tile--picture img {
-  object-fit: cover;
-  width: 100%;
+.post-tile--picture {
+  margin-bottom: Rem(10px);
+  img {
+    object-fit: cover;
+    width: 100%;
+  }
 }
 
 .post-tile--category {
@@ -29,4 +32,22 @@
 
 .post-tile--excerpt {
   margin-bottom: Rem(10px);
+}
+
+body.dark {
+  .post-tile {
+    border-color: $black;
+  }
+  .post-tile--category {
+    color: $light-mode;
+  }
+}
+body.light {
+  .post-tile {
+    border-color: $grey;
+  }
+
+  .post-tile--category {
+    color: $red;
+  }
 }

@@ -1,9 +1,23 @@
 import React from "react";
 
-const TextStrip: React.FC = ({ children }) => {
+type TextStrip = {
+  image?: {
+    src: string;
+    alt: string;
+  };
+  text: string;
+  justifyContent: "flex-start" | "center" | "flex-right";
+};
+
+const TextStrip: React.FC<TextStrip> = ({
+  text,
+  image,
+  justifyContent = "center",
+}) => {
   return (
-    <div class="support-strip">
-      <h2>{children}</h2>
+    <div className="text-strip" style={{ justifyContent: justifyContent }}>
+      {image && <img src={image.src} alt={image.alt} />}
+      <h2>{text}</h2>
     </div>
   );
 };

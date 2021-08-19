@@ -16,16 +16,26 @@ a {
   }
 }
 
+img {
+  width: 100%;
+}
+
 @import "./grid.scss";
+
+@import "./layouts//post.scss";
 
 @import "./components/ui/header.scss";
 @import "./components/ui/navigation.scss";
-@import "./components/ui/post/tile.scss";
-@import "./components/ui/post/regular.scss";
-@import "./components/ui/post/feature.scss";
-@import "./components/ui/post/mini.scss";
-@import "./components/ui/post/strip.scss";
-@import "./components/ui/support_strip.scss";
+@import "./components/ui/post/tiles/tile.scss";
+@import "./components/ui/post/tiles/regular.scss";
+@import "./components/ui/post/tiles/feature.scss";
+@import "./components/ui/post/tiles/mini.scss";
+@import "./components/ui/post/tiles/strip.scss";
+@import "./components/ui/post/page.scss";
+
+@import "./components/ui/text-strip.scss";
+@import "./components/ui/mode-toggle.scss";
+@import "./components/daily-cartoon.scss";
 
 @font-face {
   font-family: "AdobeCarlsonPro";
@@ -60,25 +70,29 @@ a {
   font-display: swap;
 }
 
-:root {
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
-    sans-serif, Apple Color Emoji, Segoe UI Emoji;
-  font-size: 1rem;
-  --user-font-scale: 1rem - 16px;
-  font-size: 16px;
-
-  --black: #000000;
-  --grey: #d1d1d1;
-  --white: #ffffff;
-}
-
 body {
-  background: var(--white);
-  color: var(--black);
+  @include mode-transition;
+  background: $white;
+  color: $black;
   font-size: 16px;
   margin: 0 0 0 0;
   padding: 0 0 0 0;
   box-sizing: border-box;
+  &.dark {
+    background: $dark-mode;
+    color: $light-mode;
+    a {
+      color: $light-mode;
+    }
+  }
+  &.light {
+    background: $light-mode;
+    color: $black;
+
+    a {
+      color: $black;
+    }
+  }
 }
 p {
   font-family: "AdobeCarlsonPro", serif;
@@ -98,4 +112,9 @@ ul {
 
 li {
   list-style: none;
+}
+
+.page-width {
+  max-width: $pageWidth;
+  margin: 0 auto;
 }

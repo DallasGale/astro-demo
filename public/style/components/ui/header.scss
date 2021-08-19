@@ -1,25 +1,35 @@
 .header {
+  @include mode-transition;
   align-items: center;
-  background: white;
+  background: $white;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   height: auto;
   justify-content: center;
   width: 100%;
-  @include respond-to(tablet) {
-    min-height: Rem(138px);
-  }
+  max-height: $headerHeight;
 }
 
 .header__logo {
   box-sizing: border-box;
-  width: Rem(290px);
-  height: Rem(68px);
-  margin-top: Rem(40px);
-  margin-bottom: Rem(40px);
+  width: Rem(285px);
+  margin-top: Rem(23px);
+  margin-bottom: Rem(15px);
 
   img {
     width: 100%;
+  }
+}
+
+body.dark {
+  .header {
+    background: $dark-mode;
+  }
+}
+
+body.light {
+  .header {
+    background: $light-mode;
   }
 }

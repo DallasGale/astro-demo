@@ -1,7 +1,13 @@
 {
+  "moduleResolution": "node",
   "compilerOptions": {
     "baseUrl": "./",
     "jsx": "react",
-    "paths": { "*": [".snowpack/types/*"] }
-  }
+    "paths": { "*": [".snowpack/types/*"] },
+    "strict": true,
+    "resolveJsonModule": true,
+    "noImplicitAny": false,
+    "esModuleInterop": true
+  },
+  "exclude": ["node_modules", "build", "scripts"]
 }
