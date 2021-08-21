@@ -13,18 +13,20 @@ const PostBody: React.VFC<Props> = ({
   tileType,
 }) => {
   const Picture = (height) => (
-    <picture
-      className="post-tile--picture"
-      style={{ backgroundImage: `url(${blurUpThumb})` }}
-    >
-      <source srcSet={`${image}?auto=format&h=${height}`} />
-      <a href={`/post/${slug}`}>
-        <img
-          src={`${image}?auto=format&h=${height}&crop=focalpoint&fp-x=${focalPoint.x}&fp-y=${focalPoint.y}`}
-          alt="Buzz"
-        />
-      </a>
-    </picture>
+    <>
+      <picture
+        className="post-tile--picture"
+        style={{ backgroundImage: `url(${blurUpThumb})` }}
+      >
+        <source srcSet={`${image}?auto=format&h=${height}`} />
+        <a href={`/post/${slug}`}>
+          <img
+            src={`${image}?auto=format&h=${height}&crop=focalpoint&fp-x=${focalPoint.x}&fp-y=${focalPoint.y}`}
+            alt="Buzz"
+          />
+        </a>
+      </picture>
+    </>
   );
 
   return (

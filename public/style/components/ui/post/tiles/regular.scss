@@ -1,5 +1,6 @@
 .post-tile--regular {
-  .post-tile--picture {
+  .post-tile--picture,
+  .post-tile--blurUpThumb {
     height: Rem(300px);
     img {
       height: 100%;

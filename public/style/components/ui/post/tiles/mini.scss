@@ -6,7 +6,9 @@
     max-width: 73%;
     min-width: 73%;
   }
-  .post-tile--picture {
+
+  .post-tile--picture,
+  .post-tile--blurUpThumb {
     flex: 1;
     order: 2;
     max-width: 27%;
