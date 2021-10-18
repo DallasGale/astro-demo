@@ -1,0 +1,46 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import GalleryLayout from "../layouts/GalleryLayout.astro";
+
+
+const token = __SNOWPACK_ENV__.DATO_API_TOKEN;
+const postsResponse = await fetch('https://graphql.datocms.com/',
+  {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      query: `{
+        legoCreation {
+          image {
+            url
+             focalPoint {
+              x
+              y
+            }
+          }
+        }
+      }`
+    })
+  }
+);
+
+const gallery = await postsResponse.json()
+console.log(gallery.data.legoCreation)
+---
+
+<BaseLayout title="Lego Creations">
+    <GalleryLayout>
+      { gallery.data.legoCreation.image.map(({url, focalPoint}) => {
+        return (
+          <div class="gallery-item">
+            <img src={`${url}?auto=format&h=400&crop=focalpoint&fp-x=${focalPoint.x}&fp-y=${focalPoint.y}`} alt="Lego Creations" />
+          </div>
+        )
+      }) }
+    </GalleryLayout>
+</BaseLayout>
+

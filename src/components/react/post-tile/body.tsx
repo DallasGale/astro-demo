@@ -1,4 +1,5 @@
 import React from "react";
+import Picture from "../picture";
 import { Props } from "./types";
 
 const PostBody: React.VFC<Props> = ({
@@ -12,29 +13,48 @@ const PostBody: React.VFC<Props> = ({
   author,
   tileType,
 }) => {
-  const Picture = (height) => (
-    <>
-      <picture
-        className="post-tile--picture"
-        style={{ backgroundImage: `url(${blurUpThumb})` }}
-      >
-        <source srcSet={`${image}?auto=format&h=${height}`} />
-        <a href={`/post/${slug}`}>
-          <img
-            src={`${image}?auto=format&h=${height}&crop=focalpoint&fp-x=${focalPoint.x}&fp-y=${focalPoint.y}`}
-            alt="Buzz"
-          />
-        </a>
-      </picture>
-    </>
-  );
-
   return (
     <>
-      {tileType === "feature" && <Picture height="900" />}
-      {tileType === "default" && <Picture height="400" />}
-      {tileType === "strip" && <Picture height="300" />}
-      {tileType === "mini" && <Picture height="100" />}
+      {tileType === "feature" && (
+        <Picture
+          modifierClass="post-tile--picture"
+          height="900"
+          image={image}
+          blurUpThumb={blurUpThumb}
+          focalPoint={focalPoint}
+          slug={`/post/${slug}`}
+        />
+      )}
+      {tileType === "default" && (
+        <Picture
+          modifierClass="post-tile--picture"
+          height="400"
+          image={image}
+          blurUpThumb={blurUpThumb}
+          focalPoint={focalPoint}
+          slug={`/post/${slug}`}
+        />
+      )}
+      {tileType === "strip" && (
+        <Picture
+          modifierClass="post-tile--picture"
+          height="300"
+          image={image}
+          blurUpThumb={blurUpThumb}
+          focalPoint={focalPoint}
+          slug={`/post/${slug}`}
+        />
+      )}
+      {tileType === "mini" && (
+        <Picture
+          modifierClass="post-tile--picture"
+          height="100"
+          image={image}
+          blurUpThumb={blurUpThumb}
+          focalPoint={focalPoint}
+          slug={`/post/${slug}`}
+        />
+      )}
       <div className="post-tile--copy">
         <small className="post-tile--category">{category}</small>
         <h2 className="post-tile--title">

@@ -7,15 +7,18 @@
     min-width: 73%;
   }
 
-  .post-tile--picture,
-  .post-tile--blurUpThumb {
+  .post-tile--picture {
+    background-size: 100%;
     flex: 1;
     order: 2;
     max-width: 27%;
     min-width: 27%;
-    height: Rem(50px);
+    height: 5vw;
+    max-height: Rem(50px);
     img {
-      height: 100%;
+      height: 5vw;
+      max-height: Rem(50px);
+
       width: 100%;
       object-fit: cover;
     }

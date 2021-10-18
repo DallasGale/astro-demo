@@ -1,13 +1,10 @@
-.post-header {
-  min-height: calc(100vh - 160px);
-}
-
-.post-header--picture {
+.post-header__picture {
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
-  height: 100%;
+  height: calc(100vh - 160px);
   margin-bottom: Rem(10px);
+  width: 100%;
   img {
     object-fit: cover;
     width: 100%;

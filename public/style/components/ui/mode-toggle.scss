@@ -3,25 +3,28 @@
   position: absolute;
   right: Rem(10px);
   top: Rem(10px);
-  height: Rem(20px);
+  height: Rem(31px);
   padding: Rem(10px);
-  background: $grey;
+  background: $white;
+  border: Rem(1px) solid $grey;
   color: $black;
-  border-radius: Rem(50px);
+  border-radius: Rem(33px);
   width: Rem(50px);
   font-size: Rem(9px);
 }
 
 .mode-toggle__switch {
-  background-color: blueviolet;
+  background-color: $black;
   border-radius: 50%;
   position: absolute;
-  height: Rem(20px);
-  width: Rem(20px);
+  height: Rem(31px);
+  width: Rem(31px);
+  top: -1px !important;
   inset: 0 0 0 0;
   &.dark {
     transition: all 0.3s ease;
-    transform: translateX(30px);
+    transform: translateX(18px);
+    background-color: $red;
   }
   &.light {
     transition: all 0.3s ease;

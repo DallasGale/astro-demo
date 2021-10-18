@@ -1,11 +1,11 @@
 ---
-let title = 'My Astro Site';
+let title = 'RomanGale.com';
 import BaseLayout from "../layouts/BaseLayout.astro";
 import AboveFoldLayout from "../components/astro/above-fold-layout.astro";
 import PostTile from "../components/react/post-tile/";
 import TextStrip from "../components/react/text-strip/";
 import ManInAHat from "../../public/assets/eustace-400.png";
-
+import ContentTile from "../components/react/content-tile";
 import DailyCartoon from "../components/react/daily-cartoon/index.tsx"
 
 // Data
@@ -66,10 +66,36 @@ const cartoonResponse = await fetch('https://graphql.datocms.com/',
     })
   }
 );
+
+
+const puzzlesGamesResponse = await fetch('https://graphql.datocms.com/',
+  {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      query: `{
+        legoCreation {
+          image {
+            url
+             focalPoint {
+              x
+              y
+            }
+          }
+        }
+      }`
+    })
+  }
+);
+
+
 const postsData = await postsResponse.json()
 const featurePost = postsData.data.allPosts[2]
 const stripPost = postsData.data.allPosts[3]
-
 const defaultFocal = {
   x: "0",
   y: "0"
@@ -80,7 +106,11 @@ const cartoonData = await cartoonResponse.json()
 const dailyCartoon =  cartoonData.data.allCartoons[0]
 // const dailyCartoon = data.data.allCartoons[0]
 
-console.log("dailyCartoon:" ,dailyCartoon)
+
+const puzzlesGamesData = await puzzlesGamesResponse.json()
+const legoCreation = puzzlesGamesData.data.legoCreation.image[5]
+console.log(legoCreation.url)
+
 const supportBuzzImage = {
   src: ManInAHat,
   alt: "Eustace"
@@ -162,11 +192,21 @@ const supportBuzzImage = {
   <TextStrip text="Puzzles & Games" justifyContent="center" />
 
 
-  <!-- <div class="grid four-col"> 
+  <div class="grid four-col"> 
     <div class="four-col-grid__col">
-      <PostTile
-        slug="/"
-        tileType="regular"
+      <ContentTile
+        slug="/lego-creations"
+        tileType="default"
+        title="Lego Creations"
+        excerpt="Excerpt"
+        image={`${legoCreation.url}?auto=format&fit=crop&w=500&q=80`}
+        focalPoint={defaultFocal}
+        author=""  />
+    </div>
+     <div class="four-col-grid__col">
+      <ContentTile
+        slug="/coming-soon"
+        tileType="default"
         title="Ninja Worrier(sic)"
         category=""
         excerpt="Excerpt"
@@ -175,20 +215,9 @@ const supportBuzzImage = {
         author=""  />
     </div>
     <div class="four-col-grid__col">
-      <PostTile
-        slug="/"
-        tileType="regular"
-        title="Lego Packages"
-        category=""
-        excerpt="Excerpt"
-        image="https://images.unsplash.com/photo-1516641051054-9df6a1aad654?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2300&q=80"
-        focalPoint={defaultFocal}
-        author=""  />
-    </div>
-    <div class="four-col-grid__col">
-      <PostTile
-        slug="/"
-        tileType="regular"
+      <ContentTile
+        slug="/coming-soon"
+        tileType="default"
         title="Hide and seek"
         category=""
         excerpt="Excerpt"
@@ -197,9 +226,9 @@ const supportBuzzImage = {
         author=""  />
     </div>
     <div class="four-col-grid__col">
-      <PostTile
-        slug="/"
-        tileType="regular"
+      <ContentTile
+        slug="/coming-soon"
+        tileType="default"
         title="Dinosaur puzzles"
         category=""
         excerpt="Excerpt"
@@ -207,12 +236,12 @@ const supportBuzzImage = {
         focalPoint={defaultFocal}
         author=""  />
     </div>
-  </div> -->
+  </div>
 
-  <div class="grid two-col">
+  <!-- <div class="grid two-col">
     <div class="two-col-grid__col"></div>
     <div class="two-col-grid__col">
       <DailyCartoon cartoon={{src: `${dailyCartoon.image.url}?auto=format`, alt: dailyCartoon.image.alt, caption: dailyCartoon.caption}} />
     </div>
-  </div>
+  </div> -->
 </BaseLayout>

@@ -1,18 +1,26 @@
 ---
 const { image, title, author, excerpt, date, category, focalPoint, blurUpThumb } = Astro.props;
+
+const options = { month: "long", day: "numeric", year: "numeric" };
+let isoDate = new Date(date).toISOString()
+let newDate = new Date(isoDate)
+let intlDate = new Intl.DateTimeFormat("en-US", options).format(newDate)
+
 ---
 <div class="grid two-col post-header">
 
   <div class="two-col-grid__col">
-    <small>{category}</small>
-    <h1>{title}</h1>
-    <p>{excerpt}</p>
-    <small>{date}</small>
-    <h2>{author}</h2>
+    <div class="post-header__content">
+      <small class="post-header__category">{category}</small>
+      <h1 class="post-header__title">{title}</h1>
+      <p class="post-header__excerpt">{excerpt}</p>
+      <h2 class="post-header__author">By {author}</h2>
+      <small class="post-header__date">{intlDate}</small>
+    </div>
   </div>
 
   <div class="two-col-grid__col">
-    <picture class="post-header--picture" style={`background-image: url('${blurUpThumb}')`}>
+    <picture class="post-header__picture" style={`background-image: url('${blurUpThumb}')`}>
       <source srcset={`${image}?auto=format&h=900`} />
       <img src={`${image}?auto=format&h=900&crop=focalpoint&fp-x=${focalPoint.x}&fp-y=${focalPoint.y}`} alt="Buzz" />
     </picture>

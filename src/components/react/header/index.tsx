@@ -1,7 +1,7 @@
 import React from "react";
 import nav_items from "./navigation.json";
 
-import ModeToggle from "../mode-toggle";
+// import ModeToggle from "../mode-toggle";
 
 interface Props {
   logo: {
@@ -30,7 +30,7 @@ const Header: React.FC<Props> = ({ logo: { src } }) => {
           })}
         </ul>
       </nav>
-      <ModeToggle />
+      {/* <ModeToggle /> */}
     </header>
   );
 };

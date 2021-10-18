@@ -27,7 +27,10 @@ const logo = {
     <!-- <GridOverlay /> -->
     <!-- Adds a navigation bar to every page. -->
     <Header client:idle logo={logo} />
-    <!-- slot: your page content will be injected here. -->
-    <slot />
+
+    <div class="page-content">
+      <!-- slot: your page content will be injected here. -->
+      <slot />
+    </div>
   </body>
 </html>

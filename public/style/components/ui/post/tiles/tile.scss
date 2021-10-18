@@ -6,6 +6,9 @@
   padding-top: Rem(10px);
   position: relative;
   width: 100%;
+  &:last-child {
+    border-bottom: none;
+  }
 }
 
 .post-tile--picture {

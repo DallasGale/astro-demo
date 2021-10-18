@@ -1,6 +1,7 @@
 .text-strip {
   align-items: center;
   border-bottom: 1px solid $grey;
+  border-top: 1px solid $grey;
   display: flex;
   height: Rem(100px);
   max-width: $pageWidth;
@@ -8,6 +9,7 @@
   text-align: center;
   justify-content: center;
   margin-bottom: Rem(20px);
+  margin-top: Rem(20px);
   * {
     font-family: "AdobeCarlsonPro";
     font-size: Rem(19px);

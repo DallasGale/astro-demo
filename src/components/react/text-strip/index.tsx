@@ -17,7 +17,7 @@ const TextStrip: React.FC<TextStrip> = ({
   return (
     <div className="text-strip" style={{ justifyContent: justifyContent }}>
       {image && <img src={image.src} alt={image.alt} />}
-      <h2>{text}</h2>
+      <h2 dangerouslySetInnerHTML={{__html: text}} />
     </div>
   );
 };

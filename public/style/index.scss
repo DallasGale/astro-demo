@@ -21,9 +21,9 @@ img {
 }
 
 @import "./grid.scss";
-
-@import "./layouts//post.scss";
-
+@import "./layouts/post.scss";
+@import "./layouts/page.scss";
+@import "./layouts/coming-soon.scss";
 @import "./components/ui/header.scss";
 @import "./components/ui/navigation.scss";
 @import "./components/ui/post/tiles/tile.scss";
@@ -32,6 +32,9 @@ img {
 @import "./components/ui/post/tiles/mini.scss";
 @import "./components/ui/post/tiles/strip.scss";
 @import "./components/ui/post/page.scss";
+@import "./components/ui/post/header.scss";
+
+@import "./components/ui/gallery/layout.scss";
 
 @import "./components/ui/text-strip.scss";
 @import "./components/ui/mode-toggle.scss";
