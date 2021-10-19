@@ -3,20 +3,23 @@ $grid--gap: Rem(32px);
 %grid {
   box-sizing: border-box;
   opacity: 0.05;
-  display: grid;
+  display: block;
   column-gap: $grid--gap;
+  padding-left: Rem(20px);
+  padding-right: Rem(20px);
   grid-template-columns: [col1Start] 1fr [col2Start] 1fr [col3Start] 1fr [col4Start] 1fr [col5Start] 1fr [col6Start] 1fr [col7Start] 1fr [col8Start] 1fr [col9Start] 1fr [col10Start] 1fr [col11Start] 1fr [col12Start] 1fr [col13Start];
-  padding-left: Rem(64px);
-  padding-right: Rem(64px);
+ 
   width: 100%;
   margin: 0 auto;
-  @include respond-to(desktop) {
-    max-width: $maxWidth;
+  @include respond-to(tablet) {
+    display: grid;
+    max-width: $maxWidth; 
+    padding-left: Rem(64px);
+    padding-right: Rem(64px);
   }
 }
 .grid {
   @extend %grid;
-  // background: rgba(19, 211, 147, 0.2);
   position: relative;
   opacity: 1;
 }
@@ -42,12 +45,16 @@ $grid--gap: Rem(32px);
 }
 
 .grid-col--thumbnail-posts {
-  grid-column: col1Start / col4Start;
+  @include respond-to(tablet) {
+    grid-column: col1Start / col4Start;
+  }
 }
 
 .grid-col--featured-posts {
-  grid-column: col4Start / col10Start;
   position: relative;
+  @include respond-to(tablet) {
+    grid-column: col4Start / col10Start;
+  }
   &:before {
     content: "";
     height: 100%;

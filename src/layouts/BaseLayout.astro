@@ -3,15 +3,15 @@
 
 // src/layouts/BaseLayout.astro
 const {title} = Astro.props;
-import GridOverlay from "../components/astro/grid-overlay";
 import Header from "../components/react/header/index.tsx";
 import NewYorker from "../../public/assets/new-yorker.svg";
 
-console.log(NewYorker)
 const logo = {
   src: NewYorker,
   alt: "The New Yorker"
 }
+
+ const {modifier}  = Astro.props;
 ---
 <html>
 <head>
@@ -28,7 +28,7 @@ const logo = {
     <!-- Adds a navigation bar to every page. -->
     <Header client:idle logo={logo} />
 
-    <div class="page-content">
+    <div class={`page-content ${modifier}`}>
       <!-- slot: your page content will be injected here. -->
       <slot />
     </div>
